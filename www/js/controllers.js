@@ -1,6 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
+  $scope.cost = "0.00";
+  $scope.increment = function(price) {
+      var total = parseFloat($scope.cost) + price;
+      $scope.cost = total.toFixed(2).toString();
+    };
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
